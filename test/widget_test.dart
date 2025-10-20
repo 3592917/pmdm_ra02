@@ -7,8 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:pmdm_ra02/main.dart';
 import 'package:pmdm_ra02/my_app.dart';
 
 void main() {
