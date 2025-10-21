@@ -11,10 +11,25 @@ void main() {
     expect(find.text('Flutter básico - HTTP y Serialización'), findsOneWidget);
 
     // Verify that all buttons are displayed.
-    expect(find.widgetWithText(ElevatedButton, 'Obtener usuario'), findsOneWidget);
-    expect(find.widgetWithText(ElevatedButton, 'Obtener todos los usuarios'), findsOneWidget);
-    expect(find.widgetWithText(ElevatedButton, 'Crear un nuevo usuario'), findsOneWidget);
-    expect(find.widgetWithText(ElevatedButton, 'Modificar usuario'), findsOneWidget);
-    expect(find.widgetWithText(ElevatedButton, 'Borrar usuario'), findsOneWidget);
+    expect(
+      find.widgetWithText(ElevatedButton, 'Obtener usuario'),
+      findsOneWidget,
+    );
+    expect(
+      find.widgetWithText(ElevatedButton, 'Obtener todos los usuarios'),
+      findsOneWidget,
+    );
+    expect(
+      find.widgetWithText(ElevatedButton, 'Crear un nuevo usuario'),
+      findsOneWidget,
+    );
+    expect(
+      find.widgetWithText(ElevatedButton, 'Modificar usuario'),
+      findsOneWidget,
+    );
+    expect(
+      find.widgetWithText(ElevatedButton, 'Borrar usuario'),
+      findsOneWidget,
+    );
   });
 }
