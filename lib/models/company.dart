@@ -10,7 +10,8 @@ class Company {
 
   Company();
 
-  factory Company.fromJson(Map<String, dynamic> json) => _$CompanyFromJson(json);
+  factory Company.fromJson(Map<String, dynamic> json) =>
+      _$CompanyFromJson(json);
 
   Map<String, dynamic> toJson() => _$CompanyToJson(this);
   @override

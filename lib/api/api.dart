@@ -27,7 +27,10 @@ Future<ApiResult<User?>> getUser(int id) async {
     User user = User.fromJson(jsonDecode(res.body));
     return ApiResult(data: user, statusCode: res.statusCode);
   } else {
-    return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+    return ApiResult(
+      statusCode: res.statusCode,
+      error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+    );
   }
 }
 
@@ -40,7 +43,10 @@ Future<ApiResult<List<User>?>> getUsers() async {
       List<User> users = list.map((user) => User.fromJson(user)).toList();
       return ApiResult(data: users, statusCode: res.statusCode);
     } else {
-      return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+      return ApiResult(
+        statusCode: res.statusCode,
+        error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+      );
     }
   } catch (e) {
     return ApiResult(error: "Error: $e");
@@ -48,7 +54,6 @@ Future<ApiResult<List<User>?>> getUsers() async {
 }
 
 User _getUserFromUser(User user, http.Response res) {
-
   final userRes = User.fromJson(jsonDecode(res.body));
   user.id = userRes.id;
   return user;
@@ -61,9 +66,15 @@ Future<ApiResult<User?>> postUser(User user) async {
     final res = await http.post(_uri('users'), headers: _headers, body: body);
 
     if (res.statusCode == 201) {
-      return ApiResult(data: _getUserFromUser(user, res), statusCode: res.statusCode);
+      return ApiResult(
+        data: _getUserFromUser(user, res),
+        statusCode: res.statusCode,
+      );
     } else {
-      return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+      return ApiResult(
+        statusCode: res.statusCode,
+        error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+      );
     }
   } catch (e) {
     return ApiResult(error: "Error: $e");
@@ -74,15 +85,24 @@ Future<ApiResult<User?>> putUser(User user) async {
   try {
     final body = jsonEncode(user.toJson());
 
-    final res = await http.put(_uri('users/${user.id}'), headers: _headers, body: body);
+    final res = await http.put(
+      _uri('users/${user.id}'),
+      headers: _headers,
+      body: body,
+    );
 
     if (res.statusCode == 200) {
-
       final userRes = User.fromJson(jsonDecode(res.body));
       user.id = userRes.id;
-      return ApiResult(data: _getUserFromUser(user, res), statusCode: res.statusCode);
+      return ApiResult(
+        data: _getUserFromUser(user, res),
+        statusCode: res.statusCode,
+      );
     } else {
-      return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+      return ApiResult(
+        statusCode: res.statusCode,
+        error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+      );
     }
   } catch (e) {
     return ApiResult(error: "Error: $e");
@@ -93,15 +113,24 @@ Future<ApiResult<User?>> patchUser(User user) async {
   try {
     final body = jsonEncode(user.toJson());
 
-    final res = await http.patch(_uri('users/${user.id}'), headers: _headers, body: body);
+    final res = await http.patch(
+      _uri('users/${user.id}'),
+      headers: _headers,
+      body: body,
+    );
 
     if (res.statusCode == 200) {
-
       final userRes = User.fromJson(jsonDecode(res.body));
       user.id = userRes.id;
-      return ApiResult(data: _getUserFromUser(user, res), statusCode: res.statusCode);
+      return ApiResult(
+        data: _getUserFromUser(user, res),
+        statusCode: res.statusCode,
+      );
     } else {
-      return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+      return ApiResult(
+        statusCode: res.statusCode,
+        error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+      );
     }
   } catch (e) {
     return ApiResult(error: "Error: $e");
@@ -115,7 +144,10 @@ Future<ApiResult<void>> deleteUser(int id) async {
     if (res.statusCode == 200) {
       return ApiResult(statusCode: res.statusCode);
     } else {
-      return ApiResult(statusCode: res.statusCode, error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}');
+      return ApiResult(
+        statusCode: res.statusCode,
+        error: res.reasonPhrase ?? 'Error HTTP: ${res.statusCode}',
+      );
     }
   } catch (e) {
     return ApiResult(error: "Error: $e");
