@@ -10,4 +10,3 @@ jobs:
       run_ios: false
       run_android_build: true
       upload_apk: true
-      run_codecov: false

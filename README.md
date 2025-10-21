@@ -2,6 +2,7 @@
 
 A new Flutter project to practise http calls and serialization + GitHub Actions workflow.
 
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
