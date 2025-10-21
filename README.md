@@ -1,6 +1,6 @@
-# pmdm_ra02
+# pmdm_ra02 
 
-A new Flutter project.
+A new Flutter project to practise http calls and serialization + GitHub Actions workflow.
 
 ## Getting Started
 
